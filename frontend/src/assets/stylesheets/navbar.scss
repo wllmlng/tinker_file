@@ -1,0 +1,36 @@
+.navbar-container {
+    background-color: #008697;
+    padding: 10px;
+    border-bottom: 1px solid lightgray;
+
+
+    .nav-header-bar {
+        display: flex;
+        justify-content: space-between;
+        margin-left: 20px;
+        margin-right: 20px;
+        align-items: center;
+
+        .left-navbar {
+
+            .brand-navbar {
+                font-family: 'Allura',
+                cursive;
+                font-size: 40px;
+                color: white;
+
+
+            }
+        }
+
+        .logoutButton {
+            color: white;
+            font-size: 14px;
+            border: 0;
+            outline: 0;
+            background: transparent;
+        }
+    }
+
+}
+

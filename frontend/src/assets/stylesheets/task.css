@@ -1,0 +1,78 @@
+.taskForm{
+    display: flex;
+    width: 450px;
+    margin-left: 15px;
+    margin-right: 15px;
+    flex-direction: column;
+}
+
+.taskInputContainer{
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+
+.taskInput{
+    background-color: rgb(253, 208, 153);
+    border-radius: 5px;
+
+    padding: 10px;
+}
+
+
+
+.submitTaskButton{
+    background-color: rgb(33, 161, 155);
+    border-radius: 5px;
+    color: rgb(0, 0, 0);
+    padding: 8px;
+    font-size: 15px;
+}
+
+.submitTaskButton:hover{
+    background-color: rgb(22, 107, 103);
+    color:white;
+}
+
+.task_input1{
+    background-color: rgb(255, 234, 209);
+    margin-left: 5px;
+    width: 350px;
+    font-size: 16px;
+}
+
+.task_input2 {
+    background-color: rgb(255, 234, 209);
+    margin-left: 5px;
+    width: 335px;
+    font-size: 16px;
+}
+
+.task_input_comment{
+    background-color: rgb(255, 234, 209);
+    margin-left: 5px;
+    width: 420px;
+    font-size: 16px;
+}
+
+@media only screen and (max-width:620px) {
+
+    .taskForm {
+        width: 250px;   
+    }
+
+    .task_input1{
+        width: 158px;
+    }
+
+    .task_input2{
+        width:140px;
+    }
+    .task_input_comment {
+        width: 220px;
+
+    }
+
+}

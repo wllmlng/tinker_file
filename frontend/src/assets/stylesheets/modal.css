@@ -1,0 +1,75 @@
+.modal-background {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 10;
+
+}
+
+.modal-child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: bisque;
+    border: 1px solid lightgray;
+    height: 85%;
+    /* width: 70%; */
+    width: 950px;
+
+    overflow: auto;
+}
+
+.close-x {
+    /* float: right; */
+    position: absolute;
+    right: -10px;
+    top: 5px;
+    margin-right: 20px;
+    width: 32px;
+    /* height: 32px; */
+    opacity: 0.3;
+}
+
+.close-x:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.close-x:before,
+.close-x:after {
+    position: absolute;
+    /* float: right; */
+    left: 15px;
+    content: ' ';
+    height: 33px;
+    width: 2px;
+    background-color: #333;
+}
+
+.close-x:before {
+    transform: rotate(45deg);
+}
+
+.close-x:after {
+    transform: rotate(-45deg);
+}
+
+
+
+
+/*! ===================== mobile */
+@media only screen and (max-width:620px) {
+
+    /* For mobile phones: */
+    .modal-child {
+        width: 90%;
+        height: 70%;
+
+        /* overflow-x:hidden; */
+    }
+
+}

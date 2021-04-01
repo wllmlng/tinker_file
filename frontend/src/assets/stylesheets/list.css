@@ -1,0 +1,261 @@
+.createform_container input[type=text],
+.createform_container textarea,
+.createform_container select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+.show_createform_container {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    align-items: center;
+    margin-bottom: 41px;
+    margin-top: 35px;
+
+
+}
+
+.createform_container {
+    display: block;
+    text-align: center;
+    /* margin-top: 80px; */
+
+}
+
+.createform_container form {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.question-subject {
+    text-align: left;
+    color: black;
+
+}
+
+
+.submit-question-button {
+    background-color: #611f69;
+    color: #f5eaea;
+    border-radius: 5px;
+    padding: 9px;
+    margin-top: 20px;
+}
+
+
+.submit-question-button:active {
+    background-color: #47164d;
+    color: #afa7a7;
+
+}
+
+
+
+.create-room-btn:active {
+    background-color: #47164d;
+    color: #afa7a7;
+
+}
+
+.submit-question-button:hover {
+    background-color: rgb(93, 2, 93);
+}
+
+.question_errors_msg {
+    margin-top: 2px;
+    color: rgb(250, 125, 125);
+    font-size: 15px;
+    /* max-width: 300px; */
+    /* display:flex;
+    justify-content: center; */
+    /* align-items: center; */
+
+}
+
+.ques_button_err {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.question_create_label {
+    color: white;
+    font-size: 16px;
+
+}
+
+.questionForm {
+    color: white;
+    font-size: 16px;
+
+}
+
+.listContainer {
+    background-color: bisque;
+    padding-bottom: 30px;
+}
+
+.listForm{
+    background-color: bisque;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 20px;
+
+}
+
+.listInput{
+    background-color: rgb(253, 208, 153);
+    border-radius: 5px;
+    margin-top: 20px;
+    padding: 10px;
+
+}
+
+
+.allListContainer{
+    margin-top: 30px;
+    display: flex;
+    overflow-x: auto;
+    /* margin-left: 30px;
+    margin-right: 30px; */
+    margin-left: auto;
+    margin-right: auto;
+    width: 75vw;
+    flex-wrap: nowrap;
+    /* overflow: auto; */
+    
+    
+
+    /* justify-content: center; */
+}
+
+.listContainer{
+    /* background-color: blue; */
+    /* overflow: hidden; */
+
+}
+
+.listItem{
+    background-color: rgb(40, 107, 231);
+    /* padding-bottom: 400px; */
+    height: 34vw;
+    margin-left: 15px;
+    margin-right: 15px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    /* overflow-x: scroll;
+    white-space:nowrap; */
+    
+}
+
+.listHeadContainer{
+    /* background-color: purple; */
+    /* display: flex;
+    justify-content: space-between; */
+    border-bottom: 1px solid lightgray;
+}
+
+.taskContainer{
+    background-color: rgb(112, 189, 241);
+    overflow-y: auto;
+
+
+}
+
+.listIndvTitle{
+    color:white;
+    font-size: 25px;
+    padding: 5px;
+    margin-left: 5px;
+}
+
+.listBtn{
+    margin-left: 5px;
+}
+
+.listEditBtn,
+.listDeleteBtn {
+    color: white;
+    margin-right:5px;
+    margin-top:5px;
+}
+
+.listAndBtn{
+    display:flex;
+    justify-content: space-between;
+    
+}
+.taskIndvTitle{
+    padding: 10px;
+    font-size: 18px;
+}
+
+.actualTitle{
+     width: 400px;
+     overflow: hidden;
+     text-overflow: ellipsis;
+     white-space: nowrap;
+}
+.taskIndvTitle:hover{
+    background-color: lightgray;
+
+}
+
+.listIndivid{
+    display:flex;
+    justify-content: space-between;
+   
+}
+
+.listIndivid:hover{
+    cursor: pointer;
+}
+
+.unfinish{
+    color:red;
+}
+
+.finish {
+    color: green;
+}
+
+.listUpdateContainer{
+    display:flex;
+    justify-content:space-between;
+}
+.listUpdateInput{
+    background-color: white;
+    color: black;
+}
+
+@media only screen and (max-width:620px) {
+
+    .listItem {
+        width: 250px;
+        height: 120vw;
+    }
+
+    .actualTitle {
+        /* font-size: 15px;
+        color: red; */
+    }
+
+    .listIndvTitle {
+        width: 140px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
