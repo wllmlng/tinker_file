@@ -14,7 +14,7 @@ export const CounterContextProvider = props => {
       {console.log('PROPS',props)}
       {props.children}
       <CounterDisplay />
-        <CounterButtons />
+      <CounterButtons />
     </CounterContext.Provider>
   );
 };

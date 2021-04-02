@@ -1,13 +1,14 @@
 import React, {lazy, Suspense } from 'react';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import { Switch, Route } from 'react-router-dom';
-// import LoginForm from './session/login_form';
-// import SignupForm from './session/signup_form';
+import LoginForm from './session/login_form';
+import SignupForm from './session/signup_form';
 import List from './list/list';
 import '../assets/stylesheets/reset.css';
 
 import { Container } from "semantic-ui-react";
-import CounterView from "./views/counter-view";
+// import CounterView from "./views/counter-view";
+import ContactView from "./views/contact-view";
 import { CounterContextProvider } from "./context/counter-context";
 
 
@@ -18,18 +19,19 @@ import { CounterContextProvider } from "./context/counter-context";
 
 const App = () => (
   <div>
-    <Container>
+    {/* <Container>
       <h1>React Hooks Context Demo</h1>
       <CounterContextProvider />
-    </Container>
+      <ContactView />
+    </Container> */}
     <Switch>
-      {/* <Route exact path="/login" component={LoginForm} />
-        <Route exact path="/signup" component={SignupForm} /> */}
+      <Route exact path="/login" component={LoginForm} />
+        <Route exact path="/signup" component={SignupForm} />
         <Route exact path="/" component={List} />
       {/* <Suspense fallback={<div>Loading Page...</div>}> */}
         {/* <AuthRoute exact path="/login" component={LoginForm} />
-        <AuthRoute exact path="/signup" component={SignupForm} />
-        <ProtectedRoute exact path="/" component={List} /> */}
+        <AuthRoute exact path="/signup" component={SignupForm} /> */}
+        {/* <ProtectedRoute exact path="/" component={List} /> */}
       {/* </Suspense> */}
     </Switch>
   </div>
