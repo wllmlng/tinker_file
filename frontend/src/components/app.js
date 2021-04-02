@@ -8,9 +8,8 @@ import '../assets/stylesheets/reset.css';
 
 import { Container } from "semantic-ui-react";
 // import CounterView from "./views/counter-view";
-import ContactView from "./views/contact-view";
-import { CounterContextProvider } from "./context/counter-context";
-
+// import ContactView from "./views/contact-view";
+import SessionContextProvider from "./session/session-context";
 
 
 // const List = lazy(() => import('./list/list'));
@@ -25,9 +24,11 @@ const App = () => (
       <ContactView />
     </Container> */}
     <Switch>
-      <Route exact path="/login" component={LoginForm} />
-        <Route exact path="/signup" component={SignupForm} />
-        <Route exact path="/" component={List} />
+        <SessionContextProvider>
+          <Route exact path="/login" component={LoginForm} />
+          <Route exact path="/signup" component={SignupForm} />
+          <Route exact path="/" component={List} />
+        </SessionContextProvider>
       {/* <Suspense fallback={<div>Loading Page...</div>}> */}
         {/* <AuthRoute exact path="/login" component={LoginForm} />
         <AuthRoute exact path="/signup" component={SignupForm} /> */}

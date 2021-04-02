@@ -2,7 +2,6 @@ import React, { useReducer, createContext } from "react";
 
 export const SessionContext = createContext();
 
-
 const reducer = (state, action) => {
   switch (action.type) {
     case "RECEIVE_CURRENT_USER":
