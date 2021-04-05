@@ -11,7 +11,7 @@ const LoginForm = () => {
     const [password, setPassword] = useState('');
     const [state, dispatch] = useContext(SessionContext);
 
-    //! const globalState = useContext(store).state;
+    const globalState = useContext(store).state;
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -43,7 +43,7 @@ const LoginForm = () => {
     }
 
     const test = () =>{
-        // console.log(globalState)
+        console.log(globalState)
     }
 
     return(

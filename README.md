@@ -1,12 +1,8 @@
 # README
 Hi there! 
 
-[Trustero Todo App](https://trustero-todo-app.herokuapp.com/) 
-
-### Features
-* Navigate to root directoy and "npm install" package.json of our server directory
-* Next navigate to the frontend/ folder and "npm install" once more
-* Head back to the root directoy and run 'npm run dev' to launch
+video on redux store using context
+https://www.youtube.com/watch?v=HbVWd7qKLU4&ab_channel=CryceTruly
 
 
 ### Backend Technologies

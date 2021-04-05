@@ -6,11 +6,11 @@ import { StateProvider } from './store.js';
 
 
 const Root = () => (
-  // <StateProvider >
+  <StateProvider >
     <HashRouter>
       <App />
     </HashRouter>
-  // </StateProvider>
+  </StateProvider>
 );
 
 export default Root;
