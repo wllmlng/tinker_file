@@ -1,6 +1,7 @@
 import React, {createContext, useReducer} from 'react';
 
 const initialState = {'globalState': true};
+
 const store = createContext(initialState);
 const { Provider } = store;
 

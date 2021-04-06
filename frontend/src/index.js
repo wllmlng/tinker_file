@@ -5,6 +5,7 @@ import Root from './components/root';
 // import jwt_decode from 'jwt-decode';
 // import { setAuthToken } from './util/session_api_util';
 // import { logout } from './actions/session_actions';
+import { configureState } from './components/session/login_form';
 import axios from 'axios';
 
 import 'fomantic-ui-css/semantic.min.css';

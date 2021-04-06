@@ -1,8 +1,4 @@
-import React, { useReducer, createContext } from "react";
-
-export const SessionContext = createContext();
-
-const reducer = (state, action) => {
+const sessionReducer = (state, action) => {
   switch (action.type) {
     case "RECEIVE_CURRENT_USER":
       return {
@@ -27,16 +23,4 @@ const reducer = (state, action) => {
   }
 };
 
-const initialState = { isAuthenticated: false, user: {} };
-
-const SessionContextProvider = props => {
-  const [state, dispatch] = useReducer(reducer, initialState);
-
-  return (
-    <SessionContext.Provider value={[state, dispatch]}>
-      {props.children}
-    </SessionContext.Provider>
-  );
-};
-
-export default SessionContextProvider;
+export default sessionReducer;

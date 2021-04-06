@@ -2,15 +2,15 @@ import React from 'react';
 // import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
 import App from './app';
-import { StateProvider } from './store.js';
+// import { StateProvider } from './store.js';
 
 
 const Root = () => (
-  <StateProvider >
+  // <Provider >
     <HashRouter>
       <App />
     </HashRouter>
-  </StateProvider>
+  // </Provider>
 );
 
 export default Root;

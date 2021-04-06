@@ -1,17 +1,22 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useReducer} from 'react';
 import {login} from '../../util/session_api_util';
 import {setAuthToken} from '../../util/session_api_util';
-import {SessionContext} from './session-context';
 import jwt_decode from 'jwt-decode';
-import { store } from '../store.js';
+import sessionReducer from '../../reducers/session_reducer';
+// import {SessionContext} from '../../context/session-context';
+
+const initialState = { isAuthenticated: false, user: {} };
 
 const LoginForm = () => {
    
     const [input, setInput] = useState('');
     const [password, setPassword] = useState('');
-    const [state, dispatch] = useContext(SessionContext);
 
-    const globalState = useContext(store).state;
+    //!not sure if context is needed
+    const [state, dispatch] = useReducer(sessionReducer, initialState);
+    // const [state, dispatch] = useContext(SessionContext);
+    //!not sure if context is needed
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -27,7 +32,6 @@ const LoginForm = () => {
             localStorage.setItem('jwtToken', token);
             setAuthToken(token);
             const decoded = jwt_decode(token);
-            //! console.log(decoded)
             dispatch({
                 type: "RECEIVE_CURRENT_USER",
                 currentUser: decoded
@@ -43,7 +47,7 @@ const LoginForm = () => {
     }
 
     const test = () =>{
-        console.log(globalState)
+        console.log('STATE',state)
     }
 
     return(
