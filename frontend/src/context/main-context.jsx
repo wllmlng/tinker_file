@@ -5,11 +5,10 @@ import jwt_decode from 'jwt-decode';
 export const MainContext = React.createContext();
 
 const MainContextProvider = ({children}) => {
-     const [jwt, setJwt] = useState({});
+     const [jwt, setJwt] = useState('');
 
      useEffect(() => {
         if(localStorage.jwtToken){
-            console.log('yo',localStorage.jwtToken)
             setAuthToken(localStorage.jwtToken);
             const decodedUser = jwt_decode(localStorage.jwtToken);
             const initialState = { isAuthenticated: true, user: decodedUser };

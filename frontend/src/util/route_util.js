@@ -1,37 +1,44 @@
-import React, {useContext} from 'react';
-// import { connect } from 'react-redux';
-import { Route, Redirect, withRouter } from 'react-router-dom';
+import React, {useContext, useEffect} from 'react';
+import { Route, Redirect, useHistory } from 'react-router-dom';
 import {MainContext} from '../context/main-context';
 
+
 // Passed in from parent component or from mapStateToProps
-export const AuthRoute = ({ component: Component, path, loggedIn, exact }) => {
+export const AuthRoute = ({ children }) => {
     
     const {jwt} = useContext(MainContext);
+    const history = useHistory();
 
+    useEffect(()=>{
+        if(!jwt.isAuthenticated){
+            history.push('/login')
+        }
+        console.log('triggered route util')
+    },[jwt])
     return(
-        <Route path={path} exact={exact} render={(props) => (
-            // !loggedIn ? (
-            jwt.isAuthenticated ? (
-                <Component {...props} />
+        <div>
+            {!jwt.isAuthenticated ? (
+                <div>
+                    {children}
+                </div>
             ) : (
                     // Redirect to the bulletin page if the user is authenticated
                     <Redirect to="/" />
                 )
-        )} />
-
+            }
+        </div>
     )
 };
 
-export const ProtectedRoute = ({ component: Component, loggedIn, ...rest }) => {
+export const ProtectedRoute = ({ component: Component, path, exact }) => {
     
     const {jwt} = useContext(MainContext);
     
     return (
         <Route
-            {...rest}
+            path={path} exact = {exact}
             render={props =>
-                // loggedIn ? (
-                    jwt.isAuthenticated ? (
+                jwt.isAuthenticated ? (
                     <Component {...props} />
                 ) : (
                         // Redirect to the login page if the user is already authenticated
