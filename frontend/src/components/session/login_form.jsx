@@ -4,6 +4,8 @@ import {setAuthToken} from '../../util/session_api_util';
 import jwt_decode from 'jwt-decode';
 import sessionReducer from '../../reducers/session_reducer';
 // import {SessionContext} from '../../context/session-context';
+import {MainContext} from '../../context/main-context';
+
 
 const initialState = { isAuthenticated: false, user: {} };
 
@@ -11,6 +13,7 @@ const LoginForm = () => {
    
     const [input, setInput] = useState('');
     const [password, setPassword] = useState('');
+    const {jwt} = useContext(MainContext);
 
     //!not sure if context is needed
     const [state, dispatch] = useReducer(sessionReducer, initialState);
@@ -47,7 +50,7 @@ const LoginForm = () => {
     }
 
     const test = () =>{
-        console.log('STATE',state)
+        console.log('JWT',jwt)
     }
 
     return(

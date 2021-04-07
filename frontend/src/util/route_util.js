@@ -1,24 +1,17 @@
-import React, {useReducer, useEffect} from 'react';
+import React, {useContext} from 'react';
 // import { connect } from 'react-redux';
 import { Route, Redirect, withRouter } from 'react-router-dom';
-import sessionReducer from '../reducers/session_reducer';
+import {MainContext} from '../context/main-context';
 
 // Passed in from parent component or from mapStateToProps
 export const AuthRoute = ({ component: Component, path, loggedIn, exact }) => {
     
-    const [state, dispatch] = useReducer(sessionReducer);
-
-    useEffect(() => {
-        dispatch({
-            type: "RECEIVE_CURRENT_USER",
-        })
-        console.log('state in util', state)
-
-    },[])
+    const {jwt} = useContext(MainContext);
 
     return(
         <Route path={path} exact={exact} render={(props) => (
-            !loggedIn ? (
+            // !loggedIn ? (
+            jwt.isAuthenticated ? (
                 <Component {...props} />
             ) : (
                     // Redirect to the bulletin page if the user is authenticated
@@ -29,19 +22,26 @@ export const AuthRoute = ({ component: Component, path, loggedIn, exact }) => {
     )
 };
 
-export const ProtectedRoute = ({ component: Component, loggedIn, ...rest }) => (
-    <Route
-        {...rest}
-        render={props =>
-            loggedIn ? (
-                <Component {...props} />
-            ) : (
-                    // Redirect to the login page if the user is already authenticated
-                    <Redirect to="/login" />
-                )
-        }
-    />
-);
+export const ProtectedRoute = ({ component: Component, loggedIn, ...rest }) => {
+    
+    const {jwt} = useContext(MainContext);
+    
+    return (
+        <Route
+            {...rest}
+            render={props =>
+                // loggedIn ? (
+                    jwt.isAuthenticated ? (
+                    <Component {...props} />
+                ) : (
+                        // Redirect to the login page if the user is already authenticated
+                        <Redirect to="/login" />
+                    )
+            }
+        />
+
+    )
+};
 
 
 
