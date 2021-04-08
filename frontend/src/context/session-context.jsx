@@ -1,29 +1,27 @@
-//!not using right now since we're not prop drilling
+// //!not using right now since we're not prop drilling
 
-import React, { useReducer, createContext, useContext, useEffect } from "react";
-import sessionReducer from '../reducers/session_reducer';
-import {MainContext} from './main-context';
+// import React, { useReducer, createContext, useContext, useEffect } from "react";
+// import sessionReducer from '../reducers/session_reducer';
+// import {MainContext} from './main-context';
 
-export const SessionContext = createContext();
+// export const SessionContext = createContext();
 
-// const initialState = { isAuthenticated: false, user: {} };
+// // const initialState = { isAuthenticated: false, user: {} };
 
-const SessionContextProvider = ({children}) => {
-  const {jwt, setJwt} = useContext(MainContext);
-  const [state, dispatch] = useReducer(sessionReducer, jwt);
+// const SessionContextProvider = ({children}) => {
+//   const {jwt, setJwt} = useContext(MainContext);
+//   const [state, dispatch] = useReducer(sessionReducer, jwt);
 
-  useEffect(() => {
-    // dispatch({
-    //   type: "RECEIVE_CURRENT_USER",
-    //   currentUser: decoded
-    // })
-  },[jwt])
+//   useEffect(() => {
 
-  return (
-    <SessionContext.Provider value={[state, dispatch]}>
-      {children}
-    </SessionContext.Provider>
-  );
-};
 
-export default SessionContextProvider;
+//   },[jwt])
+
+//   return (
+//     <SessionContext.Provider value={[state, dispatch]}>
+//       {children}
+//     </SessionContext.Provider>
+//   );
+// };
+
+// export default SessionContextProvider;

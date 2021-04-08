@@ -5,7 +5,7 @@ import LoginForm from './session/login_form';
 import SignupForm from './session/signup_form';
 import List from './list/list';
 import '../assets/stylesheets/reset.css';
-import SessionContextProvider from "../context/session-context";
+// import SessionContextProvider from "../context/session-context";
 
 
 // const List = lazy(() => import('./list/list'));
@@ -15,7 +15,7 @@ import SessionContextProvider from "../context/session-context";
 const App = () => (
   <div>
     <Switch>
-        <SessionContextProvider>
+        {/* <SessionContextProvider> */}
           {/* <Route exact path="/login" component={LoginForm} />
           <Route exact path="/signup" component={SignupForm} />
           <Route exact path="/" component={List} /> */}
@@ -29,7 +29,6 @@ const App = () => (
         {/* <AuthRoute exact path="/login" component={LoginForm} /> */}
         {/* <AuthRoute exact path="/signup" component={SignupForm} /> */}
         <ProtectedRoute exact path="/" component={List} />
-      </SessionContextProvider>
       {/* </Suspense> */}
     </Switch>
   </div>

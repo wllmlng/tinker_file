@@ -3,18 +3,22 @@ import { Route, Redirect, useHistory } from 'react-router-dom';
 import {MainContext} from '../context/main-context';
 
 
-// Passed in from parent component or from mapStateToProps
+
 export const AuthRoute = ({ children }) => {
     
     const {jwt} = useContext(MainContext);
     const history = useHistory();
 
     useEffect(()=>{
+        console.log('yo', jwt)
         if(!jwt.isAuthenticated){
             history.push('/login')
+        }else{
+            history.push('/')
         }
-        console.log('triggered route util')
+
     },[jwt])
+
     return(
         <div>
             {!jwt.isAuthenticated ? (

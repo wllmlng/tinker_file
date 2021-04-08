@@ -13,10 +13,10 @@ const LoginForm = () => {
    
     const [input, setInput] = useState('');
     const [password, setPassword] = useState('');
-    // const {jwt, setJwt} = useContext(MainContext);
+    const {jwt, setJwt} = useContext(MainContext);
 
     //!not sure if context is needed
-    const [state, dispatch] = useReducer(sessionReducer);
+    const [state, dispatch] = useReducer(sessionReducer, jwt);
     // const [state, dispatch] = useContext(SessionContext);
     //!not sure if context is needed
 
@@ -39,7 +39,6 @@ const LoginForm = () => {
                 type: "RECEIVE_CURRENT_USER",
                 currentUser: decoded
             })
-            // setJwt(state);
             // console.log('res',res)
             // console.log('state',state)
         })
@@ -51,7 +50,7 @@ const LoginForm = () => {
     }
 
     const test = () =>{
-        // console.log('JWT',jwt)
+        console.log('JWT',jwt)
         console.log('reducerState',state)
     }
 

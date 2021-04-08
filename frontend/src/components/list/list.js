@@ -1,10 +1,10 @@
 import React, {useEffect, useContext} from 'react';
-// import {store} from '../store.js';
+import {MainContext} from '../../context/main-context';
 
 
 const List = () => {
 
-    // const globalState = useContext(store)
+    const {jwt, setJwt} = useContext(MainContext);
 
     useEffect(() => {
         // console.log('globalState',globalState)
@@ -13,6 +13,7 @@ const List = () => {
     return(
         <div>
             LIST PAGE
+            <button type='button' onClick={()=>console.log(jwt)}>jwt</button>
         </div>
     )
 
