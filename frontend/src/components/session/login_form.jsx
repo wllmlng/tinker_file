@@ -1,4 +1,4 @@
-import React, {useState, useContext, useReducer} from 'react';
+import React, {useState, useEffect, useContext, useReducer} from 'react';
 import {login} from '../../util/session_api_util';
 import {setAuthToken} from '../../util/session_api_util';
 import jwt_decode from 'jwt-decode';
@@ -45,12 +45,14 @@ const LoginForm = () => {
         // .catch(err => {
             //     dispatch(receiveErrors(err.response.data));
         // })
-        
-
     }
 
+    //update dates jwt authentication on sessionReducer state change
+    useEffect(() => {
+        setJwt(state)
+    },[state])
+
     const test = () =>{
-        console.log('JWT',jwt)
         console.log('reducerState',state)
     }
 
