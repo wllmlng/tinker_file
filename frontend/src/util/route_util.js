@@ -6,14 +6,14 @@ import {MainContext} from '../context/main-context';
 export const AuthRoute = ({ children }) => {
     
     const {jwt} = useContext(MainContext);
-    const history = useHistory();
+    // const history = useHistory();
 
-    useEffect(()=>{
-        if(!jwt.isAuthenticated){
-            history.push('/login')
-        }
+    // useEffect(()=>{
+    //     if(!jwt.isAuthenticated){
+    //         history.push('/login')
+    //     }
 
-    },[jwt])
+    // },[jwt])
 
     return(
         <div>
@@ -30,22 +30,33 @@ export const AuthRoute = ({ children }) => {
     )
 };
 
-export const ProtectedRoute = ({ component: Component, path, exact }) => {
+// export const ProtectedRoute = ({ component: Component, path, exact }) => {
+export const ProtectedRoute = ({ children }) => {
+
+    const {jwt, isLoading} = useContext(MainContext);
     
-    const {jwt} = useContext(MainContext);
-    
+    if(isLoading){
+        return <div>LOADING</div>
+    }
+
     return (
-        <Route
-            path={path} exact = {exact}
-            render={props =>
-                jwt.isAuthenticated ? (
-                    <Component {...props} />
-                ) : (
-                        // Redirect to the login page if the user is already authenticated
-                        <Redirect to="/login" />
-                    )
+        
+        <div>
+            {console.log('LOOK HERE', jwt)}
+            {jwt.isAuthenticated ? (
+                <div>
+                    {children}
+                </div>
+            ) : (
+                // Redirect to the login page if the user is already authenticated
+                <div>
+                    <Redirect to="/login" />
+                    {console.log('RENDERED', jwt)}
+                </div>
+                )
             }
-        />
+        </div>
+
 
     )
 };

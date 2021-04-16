@@ -1,23 +1,34 @@
-import React from "react";
+import React, {useReducer, useContext, useEffect} from "react";
 import { Link } from 'react-router-dom'
 import '../../assets/stylesheets/navbar.scss';
-import { useSelector, useDispatch } from 'react-redux';
-import { logout } from '../../actions/session_actions';
+import sessionReducer from '../../reducers/session_reducer';
+import {MainContext} from '../../context/main-context';
+import { setAuthToken } from "../../util/session_api_util";
 
 
 const NavBar = (props) => {
 
-    const dispatch = useDispatch();
-    const loggedIn = useSelector(state => state.session.isAuthenticated)
+    const [state, dispatch] = useReducer(sessionReducer);
+    const {jwt, setJwt} = useContext(MainContext);
+
+    //update dates jwt authentication on sessionReducer state change
+    useEffect(() => {
+        if ( state !== undefined ){
+            setJwt(state)
+        }
+    },[state])
 
     function logoutUser() {
-        dispatch(logout());
-
+        localStorage.removeItem('jwtToken')
+        setAuthToken(false) 
+        dispatch({
+            type: "RECEIVE_USER_LOGOUT"
+        })
     }
 
 
     function getLinks() {
-        if (loggedIn) {
+        if (jwt.isAuthenticated) {
             return (
                 <div className='lefty'>
                     <button onClick={() => logoutUser()} className='logoutButton'>Logout</button>
@@ -33,11 +44,10 @@ const NavBar = (props) => {
     }
 
     return (
-    
         <div className='navbar-container'>
             <div className='nav-header-bar'>
                 <div className='left-navbar'>    
-                    <div className='brand-navbar'>Trustero</div>
+                    <div className='brand-navbar'>Tinker</div>
                 </div>
                 <div>
                     {getLinks()}

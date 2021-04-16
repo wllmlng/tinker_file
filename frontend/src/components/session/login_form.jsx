@@ -7,18 +7,15 @@ import sessionReducer from '../../reducers/session_reducer';
 import {MainContext} from '../../context/main-context';
 
 
-// const initialState = { isAuthenticated: false, user: {} };
-
 const LoginForm = () => {
    
     const [input, setInput] = useState('');
     const [password, setPassword] = useState('');
     const {jwt, setJwt} = useContext(MainContext);
 
-    //!not sure if context is needed
+
     const [state, dispatch] = useReducer(sessionReducer, jwt);
-    // const [state, dispatch] = useContext(SessionContext);
-    //!not sure if context is needed
+
 
 
     const handleSubmit = (e) => {
@@ -39,11 +36,9 @@ const LoginForm = () => {
                 type: "RECEIVE_CURRENT_USER",
                 currentUser: decoded
             })
-            // console.log('res',res)
-            // console.log('state',state)
         })
         // .catch(err => {
-            //     dispatch(receiveErrors(err.response.data));
+        //         dispatch(receiveErrors(err.response.data));
         // })
     }
 
