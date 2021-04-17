@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useContext, useReducer} from 'react';
 import {login} from '../../util/session_api_util';
 import {setAuthToken} from '../../util/session_api_util';
+import { Link } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import sessionReducer from '../../reducers/session_reducer';
 // import {SessionContext} from '../../context/session-context';
@@ -36,10 +37,10 @@ const LoginForm = () => {
                 type: "RECEIVE_CURRENT_USER",
                 currentUser: decoded
             })
+        }).catch(err => {
+                // dispatch(receiveErrors(err.response.data));
+                // console.log('look', err.response.data)
         })
-        // .catch(err => {
-        //         dispatch(receiveErrors(err.response.data));
-        // })
     }
 
     //update dates jwt authentication on sessionReducer state change
@@ -53,7 +54,7 @@ const LoginForm = () => {
 
     return(
         <div>
-            Loinform
+            Loginform
             <form onSubmit={handleSubmit}>
                 <label>Username:
                     <input type='text' value={input} onChange={e => setInput(e.target.value)}/>
@@ -64,6 +65,7 @@ const LoginForm = () => {
                 <button type='submit'>Login</button>
             </form>
             <button type='submit' onClick={test}>test button</button>
+            <Link to='/signup'>Sign Up</Link>
         </div>
     )
 

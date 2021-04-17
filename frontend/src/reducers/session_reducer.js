@@ -15,7 +15,6 @@ const sessionReducer = (state, action) => {
         user: action.currentUser
       };
     case "RECEIVE_USER_LOGOUT":
-      console.log('HIT')
       return {
         isAuthenticated: false,
         user: undefined
