@@ -42,7 +42,6 @@ export const ProtectedRoute = ({ children }) => {
     return (
         
         <div>
-            {console.log('LOOK HERE', jwt)}
             {jwt.isAuthenticated ? (
                 <div>
                     {children}
@@ -51,7 +50,6 @@ export const ProtectedRoute = ({ children }) => {
                 // Redirect to the login page if the user is already authenticated
                 <div>
                     <Redirect to="/login" />
-                    {console.log('RENDERED', jwt)}
                 </div>
                 )
             }

@@ -19,8 +19,6 @@ const sessionReducer = (state, action) => {
         isAuthenticated: false,
         user: undefined
       };
-    case 'RECEIVE_SESSION_ERRORS':
-      return action.errors  
     default:
       return state;
   }

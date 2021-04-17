@@ -45,6 +45,7 @@ const NavBar = (props) => {
 
     return (
         <div className='navbar-container'>
+            {console.log('RENDER FROM NAV BAR')}
             <div className='nav-header-bar'>
                 <div className='left-navbar'>    
                     <div className='brand-navbar'>Tinker</div>

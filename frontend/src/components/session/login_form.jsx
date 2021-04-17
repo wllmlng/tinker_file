@@ -4,6 +4,7 @@ import {setAuthToken} from '../../util/session_api_util';
 import { Link } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import sessionReducer from '../../reducers/session_reducer';
+import sessionErrorsReducer from '../../reducers/session_errors_reducer';
 // import {SessionContext} from '../../context/session-context';
 import {MainContext} from '../../context/main-context';
 
@@ -16,6 +17,7 @@ const LoginForm = () => {
 
 
     const [state, dispatch] = useReducer(sessionReducer, jwt);
+    const [sessError, dispatchErr] = useReducer(sessionErrorsReducer, []);
 
 
 
@@ -38,8 +40,10 @@ const LoginForm = () => {
                 currentUser: decoded
             })
         }).catch(err => {
-                // dispatch(receiveErrors(err.response.data));
-                // console.log('look', err.response.data)
+            dispatchErr({
+                type: "RECEIVE_SESSION_ERRORS",
+                errors: err.response.data
+            })
         })
     }
 
@@ -50,11 +54,16 @@ const LoginForm = () => {
 
     const test = () =>{
         console.log('reducerState',state)
+        console.log('errors',sessError)
     }
-
+    
     return(
         <div>
             Loginform
+            {console.log('RENDER FROM LOGIN FORM')}
+            {sessError.map((err) => (
+                <div key={err}>{err}</div>
+            ))}
             <form onSubmit={handleSubmit}>
                 <label>Username:
                     <input type='text' value={input} onChange={e => setInput(e.target.value)}/>
