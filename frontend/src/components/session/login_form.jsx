@@ -8,8 +8,9 @@ import sessionErrorsReducer from '../../reducers/session_errors_reducer';
 // import {SessionContext} from '../../context/session-context';
 import {MainContext} from '../../context/main-context';
 
-
+//!test
 import axios from 'axios';
+//!test
 
 const LoginForm = () => {
    
@@ -22,19 +23,7 @@ const LoginForm = () => {
     const [sessError, dispatchErr] = useReducer(sessionErrorsReducer, []);
 
     const postSlack = () => {
-        //token
-        const slackToken = 'xoxb-1980593975044-1974431144242-Fiu0SmyF1asXXAWEptk4aZ3X'
-        const url = 'https://hooks.slack.com/services/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'
-        let text = {
-            text: "Hello world"
-        }
-        // const res =  axios.post(url, JSON.stringify({
-        //     'text':'Hello'
-        // // }, {headers: {authorization: `Bearer ${slackToken}`}});
-        // // }, {headers: {'Content-Type': "application/json"}});
-        // }), {headers: {'Content-Type': "application/x-www-form-urlencoded"}});
-
-
+        const url = process.env.REACT_APP_SLACK_API_KEY
 
         //!last worked
         axios({
@@ -43,7 +32,7 @@ const LoginForm = () => {
             headers: { 
                 "Content-type": "application/x-www-form-urlencoded"
             },
-            data: { text: "Sometimes?!" },
+            data: { text: "Yes?!" },
             }).then(
             (response) => {
                 console.log(response);

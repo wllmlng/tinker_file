@@ -5,6 +5,7 @@ import NavBar from './nav/navbar';
 import '../assets/stylesheets/reset.css';
 
 
+
 const List = lazy(() => import('./list/list'));
 const LoginForm = lazy(() => import('./session/login_form'));
 const SignupForm = lazy(() => import('./session/signup_form'));

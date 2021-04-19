@@ -17,8 +17,7 @@ const List = () => {
     //!wont work cause its a protected route?!
     const postSlack = () => {
         //token
-        const slackToken = 'xoxb-1980593975044-1974431144242-Fiu0SmyF1asXXAWEptk4aZ3X'
-        const url = 'https://hooks.slack.com/services/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'
+        const url = ''
         let text = {
             text: "Hello world"
         }
