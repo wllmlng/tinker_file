@@ -9,6 +9,8 @@ import sessionErrorsReducer from '../../reducers/session_errors_reducer';
 import {MainContext} from '../../context/main-context';
 
 
+import axios from 'axios';
+
 const LoginForm = () => {
    
     const [input, setInput] = useState('');
@@ -19,6 +21,39 @@ const LoginForm = () => {
     const [state, dispatch] = useReducer(sessionReducer, jwt);
     const [sessError, dispatchErr] = useReducer(sessionErrorsReducer, []);
 
+    const postSlack = () => {
+        //token
+        const slackToken = 'xoxb-1980593975044-1974431144242-Fiu0SmyF1asXXAWEptk4aZ3X'
+        const url = 'https://hooks.slack.com/services/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'
+        let text = {
+            text: "Hello world"
+        }
+        // const res =  axios.post(url, JSON.stringify({
+        //     'text':'Hello'
+        // // }, {headers: {authorization: `Bearer ${slackToken}`}});
+        // // }, {headers: {'Content-Type': "application/json"}});
+        // }), {headers: {'Content-Type': "application/x-www-form-urlencoded"}});
+
+
+
+        //!last worked
+        axios({
+            method: "POST",
+            url: url,
+            headers: { 
+                "Content-type": "application/x-www-form-urlencoded"
+            },
+            data: { text: "Sometimes?!" },
+            }).then(
+            (response) => {
+                console.log(response);
+            },
+            (error) => {
+                console.log(error);
+            });
+        //!last worked
+   
+    };
 
 
     const handleSubmit = (e) => {
@@ -74,6 +109,7 @@ const LoginForm = () => {
                 <button type='submit'>Login</button>
             </form>
             <button type='submit' onClick={test}>test button</button>
+            <button type='submit' onClick={postSlack}>postSlack</button>
             <Link to='/signup'>Sign Up</Link>
         </div>
     )
